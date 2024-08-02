@@ -90,9 +90,62 @@ std::vector<std::pair<int, int>> SearchAlgorithms::DFS(const Maze& maze) {
     return {};
 }
 
-// std::vector<std::pair<int, int>> SearchAlgorithms::AStar(const Maze& maze) {
-//     // A* implementation
-// }
+struct Node {
+    std::pair<int, int> position;
+    int g_cost; // Cost from start to current node
+    int f_cost; // g_cost + h_cost
+
+    bool operator>(const Node& other) const {
+        return f_cost > other.f_cost;
+    }
+};
+
+int heuristic(const std::pair<int, int>& a, const std::pair<int, int>& b) {
+    return std::abs(a.first - b.first) + std::abs(a.second - b.second);
+}
+
+std::vector<std::pair<int, int>> SearchAlgorithms::AStar(const Maze& maze) {
+    std::priority_queue<Node, std::vector<Node>, std::greater<Node>> frontier;
+    std::unordered_map<std::pair<int, int>, std::pair<int, int>, pair_hash> cameFrom;
+    std::unordered_map<std::pair<int, int>, int, pair_hash> g_cost;
+
+    std::pair<int, int> start = maze.getStart();
+    std::pair<int, int> goal = maze.getGoal();
+
+    frontier.push({start, 0, heuristic(start, goal)});
+    cameFrom[start] = start;
+    g_cost[start] = 0;
+
+    while (!frontier.empty()) {
+        Node current = frontier.top();
+        frontier.pop();
+
+        if (maze.isGoal(current.position.first, current.position.second)) {
+            return reconstructPath(cameFrom, current.position);
+        }
+
+        std::vector<std::pair<int, int>> neighbors = {
+            {current.position.first + 1, current.position.second}, // Down
+            {current.position.first - 1, current.position.second}, // Up
+            {current.position.first, current.position.second + 1}, // Right
+            {current.position.first, current.position.second - 1}  // Left
+        };
+
+        for (auto& next : neighbors) {
+            if (maze.isValid(next.first, next.second)) {
+                int new_cost = g_cost[current.position] + 1;
+                if (g_cost.find(next) == g_cost.end() || new_cost < g_cost[next]) {
+                    g_cost[next] = new_cost;
+                    int f_cost = new_cost + heuristic(next, goal);
+                    frontier.push({next, new_cost, f_cost});
+                    cameFrom[next] = current.position;
+                }
+            }
+        }
+    }
+
+    return {};
+}
 
 // std::vector<std::pair<int, int>> SearchAlgorithms::GreedyBestFirstSearch(const Maze& maze) {
 //     // Greedy Best-First Search implementation

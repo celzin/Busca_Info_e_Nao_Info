@@ -24,6 +24,7 @@ int main() {
 
     auto bfs_path = SearchAlgorithms::BFS(maze);
     auto dfs_path = SearchAlgorithms::DFS(maze);
+    auto astar_path = SearchAlgorithms::AStar(maze);
 
     std::cout << "BFS Path:\n";
     maze.printPath(bfs_path);
@@ -31,6 +32,9 @@ int main() {
     std::cout << "DFS Path:\n";
     maze.printPath(dfs_path);
 
+    std::cout << "A* Path:\n";
+    maze.printPath(astar_path);
+    
     // std::string bfs_filename = "dataset/bfs_search.data";
     // maze.savePath(bfs_path, bfs_filename);
 
