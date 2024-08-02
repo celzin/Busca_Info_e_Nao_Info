@@ -147,8 +147,17 @@ std::vector<std::pair<int, int>> SearchAlgorithms::AStar(const Maze& maze) {
     return {};
 }
 
+struct GreedyNode {
+    std::pair<int, int> position;
+    int h_cost; // Heuristic cost to goal
+
+    bool operator>(const GreedyNode& other) const {
+        return h_cost > other.h_cost;
+    }
+};
+
 std::vector<std::pair<int, int>> SearchAlgorithms::GreedyBestFirstSearch(const Maze& maze) {
-    std::priority_queue<Node, std::vector<Node>, std::greater<Node>> frontier;
+    std::priority_queue<GreedyNode, std::vector<GreedyNode>, std::greater<GreedyNode>> frontier;
     std::unordered_map<std::pair<int, int>, std::pair<int, int>, pair_hash> cameFrom;
 
     std::pair<int, int> start = maze.getStart();
@@ -158,7 +167,7 @@ std::vector<std::pair<int, int>> SearchAlgorithms::GreedyBestFirstSearch(const M
     cameFrom[start] = start;
 
     while (!frontier.empty()) {
-        Node current = frontier.top();
+        GreedyNode current = frontier.top();
         frontier.pop();
 
         if (maze.isGoal(current.position.first, current.position.second)) {
@@ -169,7 +178,7 @@ std::vector<std::pair<int, int>> SearchAlgorithms::GreedyBestFirstSearch(const M
             {current.position.first + 1, current.position.second},
             {current.position.first - 1, current.position.second}, 
             {current.position.first, current.position.second + 1}, 
-            {current.position.first, current.position.second - 1} 
+            {current.position.first, current.position.second - 1}  
         };
 
         for (auto& next : neighbors) {
