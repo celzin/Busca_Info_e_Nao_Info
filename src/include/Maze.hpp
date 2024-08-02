@@ -23,4 +23,4 @@ private:
     std::pair<int, int> goal;
 };
 
-#endif // MAZE_HPP
+#endif

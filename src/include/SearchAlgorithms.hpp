@@ -24,4 +24,4 @@ namespace SearchAlgorithms {
     std::vector<std::pair<int, int>> GreedyBestFirstSearch(const Maze& maze);
 }
 
-#endif // SEARCH_ALGORITHMS_HPP
+#endif

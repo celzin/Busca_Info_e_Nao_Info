@@ -1,4 +1,4 @@
-#include "Maze.hpp"
+#include "include/Maze.hpp"
 
 Maze::Maze(const std::vector<std::vector<int>>& grid, std::pair<int, int> start, std::pair<int, int> goal)
     : grid(grid), start(start), goal(goal) {}

@@ -1,4 +1,4 @@
-#include "SearchAlgorithms.hpp"
+#include "include/SearchAlgorithms.hpp"
 #include <queue>
 #include <stack>
 #include <set>
