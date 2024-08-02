@@ -3,6 +3,9 @@
 
 #include <vector>
 #include <utility>
+#include <string>
+#include <fstream>
+#include <iostream>
 
 class Maze {
 public:
@@ -12,6 +15,7 @@ public:
     std::pair<int, int> getStart() const;
     std::pair<int, int> getGoal() const;
     void printPath(const std::vector<std::pair<int, int>>& path) const;
+    // void savePath(const std::vector<std::pair<int, int>>& path, const std::string& filename) const;
 
 private:
     std::vector<std::vector<int>> grid;

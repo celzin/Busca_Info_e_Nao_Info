@@ -7,3 +7,7 @@
 ## Busca A* (A-Star)
 
 ## Busca Gulosa (Greedy Best-First Search)
+
+## Testes
+
+https://bryukh.com/labyrinth-algorithms/
