@@ -6,7 +6,7 @@
 #include <unordered_map>
 #include <algorithm>
 
-std::vector<std::pair<int, int>> reconstructPath(std::unordered_map<std::pair<int, int>, std::pair<int, int>, boost::hash<std::pair<int, int>>> cameFrom, std::pair<int, int> current) {
+std::vector<std::pair<int, int>> reconstructPath(std::unordered_map<std::pair<int, int>, std::pair<int, int>, pair_hash> cameFrom, std::pair<int, int> current) {
     std::vector<std::pair<int, int>> path;
     while (cameFrom[current] != current) {
         path.push_back(current);
@@ -19,7 +19,7 @@ std::vector<std::pair<int, int>> reconstructPath(std::unordered_map<std::pair<in
 
 std::vector<std::pair<int, int>> SearchAlgorithms::BFS(const Maze& maze) {
     std::queue<std::pair<int, int>> frontier;
-    std::unordered_map<std::pair<int, int>, std::pair<int, int>, boost::hash<std::pair<int, int>>> cameFrom;
+    std::unordered_map<std::pair<int, int>, std::pair<int, int>, pair_hash> cameFrom;
 
     std::pair<int, int> start = maze.getStart();
     std::pair<int, int> goal = maze.getGoal();
@@ -53,14 +53,14 @@ std::vector<std::pair<int, int>> SearchAlgorithms::BFS(const Maze& maze) {
     return {};
 }
 
-std::vector<std::pair<int, int>> SearchAlgorithms::DFS(const Maze& maze) {
-    // DFS implementation
-}
+// std::vector<std::pair<int, int>> SearchAlgorithms::DFS(const Maze& maze) {
+//     // DFS implementation
+// }
 
-std::vector<std::pair<int, int>> SearchAlgorithms::AStar(const Maze& maze) {
-    // A* implementation
-}
+// std::vector<std::pair<int, int>> SearchAlgorithms::AStar(const Maze& maze) {
+//     // A* implementation
+// }
 
-std::vector<std::pair<int, int>> SearchAlgorithms::GreedyBestFirstSearch(const Maze& maze) {
-    // Greedy Best-First Search implementation
-}
+// std::vector<std::pair<int, int>> SearchAlgorithms::GreedyBestFirstSearch(const Maze& maze) {
+//     // Greedy Best-First Search implementation
+// }

@@ -21,8 +21,22 @@ std::pair<int, int> Maze::getGoal() const {
 }
 
 void Maze::printPath(const std::vector<std::pair<int, int>>& path) const {
+    std::vector<std::vector<int>> mazeWithPath = grid;
+
     for (const auto& step : path) {
-        std::cout << "(" << step.first << ", " << step.second << ") ";
+        mazeWithPath[step.first][step.second] = 2; // Marca o caminho com 2
     }
-    std::cout << std::endl;
+
+    for (int i = 0; i < mazeWithPath.size(); ++i) {
+        for (int j = 0; j < mazeWithPath[i].size(); ++j) {
+            if (mazeWithPath[i][j] == 1) {
+                std::cout << "█ "; // Paredes
+            } else if (mazeWithPath[i][j] == 2) {
+                std::cout << "* "; // Caminho
+            } else {
+                std::cout << ". "; // Espaços livres
+            }
+        }
+        std::cout << std::endl;
+    }
 }
