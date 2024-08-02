@@ -90,12 +90,12 @@ std::vector<std::pair<int, int>> SearchAlgorithms::DFS(const Maze& maze) {
     return {};
 }
 
-struct Node {
+struct AStarNode {
     std::pair<int, int> position;
     int g_cost; // Cost from start to current node
     int f_cost; // g_cost + h_cost
 
-    bool operator>(const Node& other) const {
+    bool operator>(const AStarNode& other) const {
         return f_cost > other.f_cost;
     }
 };
@@ -105,7 +105,7 @@ int heuristic(const std::pair<int, int>& a, const std::pair<int, int>& b) {
 }
 
 std::vector<std::pair<int, int>> SearchAlgorithms::AStar(const Maze& maze) {
-    std::priority_queue<Node, std::vector<Node>, std::greater<Node>> frontier;
+    std::priority_queue<AStarNode, std::vector<AStarNode>, std::greater<AStarNode>> frontier;
     std::unordered_map<std::pair<int, int>, std::pair<int, int>, pair_hash> cameFrom;
     std::unordered_map<std::pair<int, int>, int, pair_hash> g_cost;
 
@@ -117,7 +117,7 @@ std::vector<std::pair<int, int>> SearchAlgorithms::AStar(const Maze& maze) {
     g_cost[start] = 0;
 
     while (!frontier.empty()) {
-        Node current = frontier.top();
+        AStarNode current = frontier.top();
         frontier.pop();
 
         if (maze.isGoal(current.position.first, current.position.second)) {
