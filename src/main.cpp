@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
-#include "Maze.hpp"
-#include "Utility.hpp"
+#include "include/Maze.hpp"
+#include "include/Utility.hpp"
 
 int main() {
     std::vector<std::vector<int>> grid = {
