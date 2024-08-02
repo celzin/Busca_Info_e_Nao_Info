@@ -125,10 +125,10 @@ std::vector<std::pair<int, int>> SearchAlgorithms::AStar(const Maze& maze) {
         }
 
         std::vector<std::pair<int, int>> neighbors = {
-            {current.position.first + 1, current.position.second}, // Down
-            {current.position.first - 1, current.position.second}, // Up
-            {current.position.first, current.position.second + 1}, // Right
-            {current.position.first, current.position.second - 1}  // Left
+            {current.position.first + 1, current.position.second},
+            {current.position.first - 1, current.position.second}, 
+            {current.position.first, current.position.second + 1}, 
+            {current.position.first, current.position.second - 1} 
         };
 
         for (auto& next : neighbors) {
@@ -147,6 +147,38 @@ std::vector<std::pair<int, int>> SearchAlgorithms::AStar(const Maze& maze) {
     return {};
 }
 
-// std::vector<std::pair<int, int>> SearchAlgorithms::GreedyBestFirstSearch(const Maze& maze) {
-//     // Greedy Best-First Search implementation
-// }
+std::vector<std::pair<int, int>> SearchAlgorithms::GreedyBestFirstSearch(const Maze& maze) {
+    std::priority_queue<Node, std::vector<Node>, std::greater<Node>> frontier;
+    std::unordered_map<std::pair<int, int>, std::pair<int, int>, pair_hash> cameFrom;
+
+    std::pair<int, int> start = maze.getStart();
+    std::pair<int, int> goal = maze.getGoal();
+
+    frontier.push({start, heuristic(start, goal)});
+    cameFrom[start] = start;
+
+    while (!frontier.empty()) {
+        Node current = frontier.top();
+        frontier.pop();
+
+        if (maze.isGoal(current.position.first, current.position.second)) {
+            return reconstructPath(cameFrom, current.position);
+        }
+
+        std::vector<std::pair<int, int>> neighbors = {
+            {current.position.first + 1, current.position.second},
+            {current.position.first - 1, current.position.second}, 
+            {current.position.first, current.position.second + 1}, 
+            {current.position.first, current.position.second - 1} 
+        };
+
+        for (auto& next : neighbors) {
+            if (maze.isValid(next.first, next.second) && cameFrom.find(next) == cameFrom.end()) {
+                frontier.push({next, heuristic(next, goal)});
+                cameFrom[next] = current.position;
+            }
+        }
+    }
+
+    return {};
+}
