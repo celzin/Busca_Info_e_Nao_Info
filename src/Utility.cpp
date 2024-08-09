@@ -13,9 +13,9 @@ void measurePerformance(const Maze& maze) {
     maze.printPath(bfs_path);
     std::cout << "\nBFS Execution Time: " << bfs_duration.count() << " ms\n";
     std::cout << "BFS Memory Usage: " << sizeof(bfs_path) + (bfs_path.capacity() * sizeof(std::pair<int, int>)) << " bytes\n";
-    std::cout << "BFS Path Length: " << bfs_path.size() << "\n";
-    std::cout << "BFS Completeness: " << (bfs_path.empty() ? "No" : "Yes") << "\n";
-    std::cout << "BFS Optimality: " << (bfs_path.size() - 1) << "\n\n"; // Path length minus start point
+    // std::cout << "BFS Path Length: " << bfs_path.size() << "\n";
+    // std::cout << "BFS Completeness: " << (bfs_path.empty() ? "No" : "Yes") << "\n";
+    // std::cout << "BFS Optimality: " << (bfs_path.size() - 1) << "\n\n"; // Path length minus start point
 
     // DFS
     start = std::chrono::high_resolution_clock::now();
@@ -26,9 +26,9 @@ void measurePerformance(const Maze& maze) {
     maze.printPath(dfs_path);
     std::cout << "\nDFS Execution Time: " << dfs_duration.count() << " ms\n";
     std::cout << "DFS Memory Usage: " << sizeof(dfs_path) + (dfs_path.capacity() * sizeof(std::pair<int, int>)) << " bytes\n";
-    std::cout << "DFS Path Length: " << dfs_path.size() << "\n";
-    std::cout << "DFS Completeness: " << (dfs_path.empty() ? "No" : "Yes") << "\n";
-    std::cout << "DFS Optimality: " << (dfs_path.size() - 1) << "\n\n"; // Path length minus start point
+    // std::cout << "DFS Path Length: " << dfs_path.size() << "\n";
+    // std::cout << "DFS Completeness: " << (dfs_path.empty() ? "No" : "Yes") << "\n";
+    // std::cout << "DFS Optimality: " << (dfs_path.size() - 1) << "\n\n"; // Path length minus start point
 
     // A*
     start = std::chrono::high_resolution_clock::now();
@@ -39,9 +39,9 @@ void measurePerformance(const Maze& maze) {
     maze.printPath(astar_path);
     std::cout << "\nA* Execution Time: " << astar_duration.count() << " ms\n";
     std::cout << "A* Memory Usage: " << sizeof(astar_path) + (astar_path.capacity() * sizeof(std::pair<int, int>)) << " bytes\n";
-    std::cout << "A* Path Length: " << astar_path.size() << "\n";
-    std::cout << "A* Completeness: " << (astar_path.empty() ? "No" : "Yes") << "\n";
-    std::cout << "A* Optimality: " << (astar_path.size() - 1) << "\n\n"; // Path length minus start point
+    // std::cout << "A* Path Length: " << astar_path.size() << "\n";
+    // std::cout << "A* Completeness: " << (astar_path.empty() ? "No" : "Yes") << "\n";
+    // std::cout << "A* Optimality: " << (astar_path.size() - 1) << "\n\n"; // Path length minus start point
 
     // Greedy Best-First Search
     start = std::chrono::high_resolution_clock::now();
@@ -52,7 +52,7 @@ void measurePerformance(const Maze& maze) {
     maze.printPath(greedy_path);
     std::cout << "\nGBFS Execution Time: " << greedy_duration.count() << " ms\n";
     std::cout << "GBFS Memory Usage: " << sizeof(greedy_path) + (greedy_path.capacity() * sizeof(std::pair<int, int>)) << " bytes\n";
-    std::cout << "GBFS Path Length: " << greedy_path.size() << "\n";
-    std::cout << "GBFS Completeness: " << (greedy_path.empty() ? "No" : "Yes") << "\n";
-    std::cout << "GBFS Optimality: " << (greedy_path.size() - 1) << "\n\n"; // Path length minus start point
+    // std::cout << "GBFS Path Length: " << greedy_path.size() << "\n";
+    // std::cout << "GBFS Completeness: " << (greedy_path.empty() ? "No" : "Yes") << "\n";
+    // std::cout << "GBFS Optimality: " << (greedy_path.size() - 1) << "\n\n"; // Path length minus start point
 }
