@@ -5,11 +5,11 @@
 </div>
 
 <br>
-<h1 align="center">
+<!-- <h1 align="center">
     <a>
         <img alt="Banner" title="#Banner" style="object-fit: fill; width: 961px, height:200px;" src="imgs/github-header-image.png"/>
     </a>
-</h1>
+</h1> -->
 
 ## 🗂️ Estrutura do Repositório
 
@@ -19,24 +19,16 @@
 
 ## 📝 Resumo
 
-<!-- <p align="center">
-<img src="imgs/move.png" width="800"/> 
+<p align="center">
+<img src="imgs/Busca_Info_e_Não_Info.png" width="800"/> 
 </p>
 <p align="center">
-<em>Figura 1: Imagem ilustrativa do funcionamento do agente reativo simples implementado. </em>
-</p> -->
+<em>Figura 1: Imagem ilustrativa das configurações dos 3 cenários utilizados nas análises. </em>
+</p>
 
 <div align="justify">
-<!-- Este trabalho apresenta o desenvolvimento de um agente inteligente aspirador robô para simulação de limpeza de um ambiente matricial, utilizando C++. A aplicação permite aos usuários inserir o tamanho da matriz quadrática desejada e simular o comportamento do agente, gerando um 'output' e um 'relatório' do desempenho do agente em determinados níveis de sujeira do ambiente. Destinado a introdutórios de Inteligência Artificial, a implementação pode facilitar a visualização e compreensão dos conceitos básicos de funcionamento de um agente inteligente. -->
+Este projeto foca na implementação e comparação de diferentes algoritmos de busca aplicados ao problema do labirinto, utilizando a linguagem de programação C++. Os algoritmos são avaliados em termos de tempo de execução, consumo de memória, completude e optimalidade, proporcionando uma análise abrangente de suas eficiências. A seguir, é discutida a metodologia utilizada para desenvolver e testar esses algoritmos. A implementação abrange dois algoritmos de busca não informada (Busca em Largura - \texttt{BFS} e Busca em Profundidade - \texttt{DFS}) e dois algoritmos de busca informada (\texttt{A*} e Busca Gulosa - \texttt{GBFS}).
 </div>
-
-## Busca em Largura (Breadth-First Search - BFS)
-
-## Busca em Profundidade (Depth-First Search - DFS)
-
-## Busca A* (A-Star)
-
-## Busca Gulosa (Greedy Best-First Search)
 
 ## 🔄 Compilação e Execução 
 
@@ -100,5 +92,3 @@ Esse programa possui um arquivo (`Makefile`) e um (`CMakeLists`), os quais reali
     <td><a href="https://t.me/celso_vsf"><img align="center" height="20px" width="90px" src="https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white"/> </td>
   </tr>
 </table>
-
-<!-- https://bryukh.com/labyrinth-algorithms/ -->
