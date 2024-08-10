@@ -5,6 +5,11 @@
 #include <vector>
 #include <utility>
 #include <unordered_map>
+#include <queue>
+#include <stack>
+#include <set>
+#include <cmath>
+#include <algorithm>
 
 struct pair_hash {
     template <class T1, class T2>

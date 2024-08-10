@@ -23,49 +23,19 @@ void Maze::printPath(const std::vector<std::pair<int, int>>& path) const {
     std::vector<std::vector<int>> mazeWithPath = grid;
 
     for (const auto& step : path) {
-        mazeWithPath[step.first][step.second] = 2; // Marca o caminho com 2
+        mazeWithPath[step.first][step.second] = 2; 
     }
 
     for (int i = 0; i < mazeWithPath.size(); ++i) {
         for (int j = 0; j < mazeWithPath[i].size(); ++j) {
             if (mazeWithPath[i][j] == 1) {
-                std::cout << "█ "; // Paredes
+                std::cout << "█ "; 
             } else if (mazeWithPath[i][j] == 2) {
-                std::cout << "* "; // Caminho
+                std::cout << "* "; 
             } else {
-                std::cout << ". "; // Espaços livres
+                std::cout << ". "; 
             }
         }
         std::cout << std::endl;
     }
 }
-
-// void Maze::savePath(const std::vector<std::pair<int, int>>& path, const std::string& filename) const {
-//     std::ofstream outFile(filename);
-//     if (!outFile) {
-//         std::cerr << "Erro ao criar o arquivo: " << filename << std::endl;
-//         return;
-//     }
-
-//     std::vector<std::vector<int>> mazeWithPath = grid;
-
-//     for (const auto& step : path) {
-//         mazeWithPath[step.first][step.second] = 2; // Marca o caminho com 2
-
-//         for (int i = 0; i < mazeWithPath.size(); ++i) {
-//             for (int j = 0; j < mazeWithPath[i].size(); ++j) {
-//                 if (mazeWithPath[i][j] == 1) {
-//                     outFile << "█ "; // Paredes
-//                 } else if (mazeWithPath[i][j] == 2) {
-//                     outFile << "* "; // Caminho
-//                 } else {
-//                     outFile << ". "; // Espaços livres
-//                 }
-//             }
-//             outFile << std::endl;
-//         }
-//         outFile << std::endl;
-//     }
-
-//     outFile.close();
-// }

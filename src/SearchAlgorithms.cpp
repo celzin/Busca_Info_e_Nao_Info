@@ -1,10 +1,4 @@
 #include "include/SearchAlgorithms.hpp"
-#include <queue>
-#include <stack>
-#include <set>
-#include <cmath>
-#include <unordered_map>
-#include <algorithm>
 
 std::vector<std::pair<int, int>> reconstructPath(std::unordered_map<std::pair<int, int>, std::pair<int, int>, pair_hash> cameFrom, std::pair<int, int> current) {
     std::vector<std::pair<int, int>> path;
@@ -92,8 +86,8 @@ std::vector<std::pair<int, int>> SearchAlgorithms::DFS(const Maze& maze) {
 
 struct AStarNode {
     std::pair<int, int> position;
-    int g_cost; // Cost from start to current node
-    int f_cost; // g_cost + h_cost
+    int g_cost; 
+    int f_cost; 
 
     bool operator>(const AStarNode& other) const {
         return f_cost > other.f_cost;
@@ -149,7 +143,7 @@ std::vector<std::pair<int, int>> SearchAlgorithms::AStar(const Maze& maze) {
 
 struct GreedyNode {
     std::pair<int, int> position;
-    int h_cost; // Heuristic cost to goal
+    int h_cost; 
 
     bool operator>(const GreedyNode& other) const {
         return h_cost > other.h_cost;
