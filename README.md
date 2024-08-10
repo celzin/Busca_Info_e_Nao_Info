@@ -27,7 +27,7 @@
 </p>
 
 <div align="justify">
-Este projeto foca na implementação e comparação de diferentes algoritmos de busca aplicados ao problema do labirinto, utilizando a linguagem de programação C++. Os algoritmos são avaliados em termos de tempo de execução, consumo de memória, completude e optimalidade, proporcionando uma análise abrangente de suas eficiências. A seguir, é discutida a metodologia utilizada para desenvolver e testar esses algoritmos. A implementação abrange dois algoritmos de busca não informada (Busca em Largura - \texttt{BFS} e Busca em Profundidade - \texttt{DFS}) e dois algoritmos de busca informada (\texttt{A*} e Busca Gulosa - \texttt{GBFS}).
+Este projeto foca na implementação e comparação de diferentes algoritmos de busca aplicados ao problema do labirinto, utilizando a linguagem de programação C++. Os algoritmos são avaliados em termos de tempo de execução, consumo de memória, completude e optimalidade, proporcionando uma análise abrangente de suas eficiências. A seguir, é discutida a metodologia utilizada para desenvolver e testar esses algoritmos. A implementação abrange dois algoritmos de busca não informada (Busca em Largura - <code>BFS</code> e Busca em Profundidade - <code>DFS</code>) e dois algoritmos de busca informada (<code>A*</code> e Busca Gulosa - <code>GBFS</code>).
 </div>
 
 ## 🔄 Compilação e Execução 
@@ -38,7 +38,7 @@ Esse programa possui um arquivo (`Makefile`) e um (`CMakeLists`), os quais reali
 
 </div>
 
-#### Makefile
+### Makefile
 
 <table align="center">
   <tr>
@@ -59,7 +59,7 @@ Esse programa possui um arquivo (`Makefile`) e um (`CMakeLists`), os quais reali
   </tr>
 </table>
 	
-#### CMake
+### CMake
 
 <table align="center">
   <tr>
